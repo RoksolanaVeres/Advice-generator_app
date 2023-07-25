@@ -47,6 +47,8 @@ Users should be able to:
 
 - Learned how to use variables in CSS for colors
 - Practiced the work with API using fetch()
+- Refreshed my memory about async functions
+- Learned how to make a loader
 
 ## Author
 
