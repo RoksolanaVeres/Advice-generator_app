@@ -30,7 +30,7 @@ Users should be able to:
 
 ### Links
 
-- [Frontend Mentor solution](https://www.frontendmentor.io/solutions/responsive-intro-section-with-mobilefirst-approach-oEYud8fG_K)
+- [Frontend Mentor solution](https://www.frontendmentor.io/solutions/advice-generator-app-using-fetch-0xl0lB37p_)
 - [GitHub repo](https://github.com/RoksolanaVeres/Advice-generator_app)
 - [Live Site](https://roksolanaveres.github.io/Advice-generator_app/)
 
