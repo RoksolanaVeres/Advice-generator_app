@@ -6,9 +6,17 @@ const diceButton = document.querySelector(".dice-icon__container");
 const loader = document.querySelector(".loader");
 
 // constants
-const apiUrl = "https://api.adviceslip.com/advice";
+const apiUrlBase = "https://api.adviceslip.com/advice";
+const MIN_ADVICE_ID = 1;
+const MAX_ADVICE_ID = 224;
 
 // functions
+function generateRandomId() {
+  return (
+    Math.floor(Math.random() * (MAX_ADVICE_ID - MIN_ADVICE_ID + 1)) +
+    MIN_ADVICE_ID
+  );
+}
 
 function showLoading() {
   loader.hidden = false;
@@ -20,17 +28,23 @@ function hideLoading() {
   adviceContainer.hidden = false;
 }
 
-async function showNewAdvice() {
+async function generateAdvice() {
   try {
     showLoading();
-    const response = await fetch(apiUrl);
+    const id = generateRandomId();
+    const response = await fetch(`${apiUrlBase}/${id}`);
     const advice = await response.json();
     hideLoading();
-    adviceIdSpan.textContent = advice.slip.id;
-    adviceTextPar.textContent = `"${advice.slip.advice}"`;
+    return advice.slip;
   } catch (error) {
     alert(error);
   }
+}
+
+async function showNewAdvice() {
+  const newAdvice = await generateAdvice();
+  adviceIdSpan.textContent = newAdvice.id;
+  adviceTextPar.textContent = `"${newAdvice.advice}"`;
 }
 
 // event listeners
